@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Wissal Mokdad, ingénieure cybersécurité : sécurité des infrastructures, SOC et sécurité applicative.">
+<title>Wissal Mokdad Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one wide column, section labels in the left gutter on desktop, stacked on phone.
+   Identity: warm sand paper, deep navy ink (same as the CV), bronze for status and labels. */
+:root {
+  --bg: #EEE6D8;
+  --surface: #F8F3E9;
+  --fg: #2A241C;
+  --muted: #655A4A;
+  --line: #D6C9B2;
+  --accent: #1F3A6E;
+  --on-accent: #F8F3E9;
+  --signal: #7A5428;
+  --signal-bg: #E4D5B8;
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1C1812; --surface: #262019; --fg: #EFE6D6; --muted: #B5A890; --line: #3B3328;
+    --accent: #D8BE88; --on-accent: #1C1812; --signal: #DDBF84; --signal-bg: #3A2F1E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1C1812; --surface: #262019; --fg: #EFE6D6; --muted: #B5A890; --line: #3B3328;
+  --accent: #D8BE88; --on-accent: #1C1812; --signal: #DDBF84; --signal-bg: #3A2F1E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 0 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; }
+
+/* top bar */
+.bar { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding-block: 20px; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--font-mono); font-size: 13px; }
+.bar nav a { color: var(--muted); text-decoration: none; }
+.bar nav a:hover { color: var(--fg); }
+.theme { font-family: var(--font-mono); font-size: 12px; background: none; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+.theme:hover { color: var(--fg); border-color: var(--muted); }
+
+/* hero */
+.hero { padding-block: 40px 60px; border-bottom: 3px double var(--line); }
+.status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--signal); background: var(--signal-bg); padding: 6px 12px; border-radius: 999px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--signal); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(3.2rem, 10vw, 6.4rem); line-height: 0.95; letter-spacing: -0.01em; margin: 22px 0 14px; text-wrap: balance; }
+.role { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.95rem); color: var(--accent); margin: 0 0 20px; text-wrap: balance; }
+.lead { max-width: 62ch; color: var(--muted); font-size: 1.06rem; margin: 0 0 28px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font: 500 15px var(--font-body); padding: 11px 20px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); text-decoration: none; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+.mail { font-family: var(--font-mono); font-size: 14px; color: var(--fg); user-select: all; overflow-wrap: anywhere; }
+
+/* sections */
+section { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px 40px; padding-block: 52px; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+.label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); padding-top: 12px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.1; margin: 0 0 22px; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; margin: 0 0 6px; }
+.content { min-width: 0; }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
+.skill h3 { font-size: 0.85rem; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.03em; color: var(--muted); text-transform: none; margin-bottom: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li { font-size: 14px; padding: 4px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.chips li.tool { font-family: var(--font-mono); font-size: 13px; }
+
+/* experience */
+.job { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 1px 0 var(--line); padding: 26px; }
+.job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-bottom: 4px; }
+.job-head h3 { font-size: 1.6rem; margin: 0; line-height: 1.15; }
+.where { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.job p.sub { margin: 0 0 16px; color: var(--muted); }
+.job ul { margin: 0 0 24px; padding-left: 1.15em; display: grid; gap: 8px; }
+.lab-title { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.lab { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.lab li { border: 1px solid var(--line); border-radius: 4px; padding: 12px 10px; background: var(--bg); font-size: 13px; line-height: 1.35; }
+.lab li b { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+.lab li.ids { border-color: var(--signal); }
+.lab li.ids b { color: var(--signal); }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 18px 0 0; padding: 0; list-style: none; font-family: var(--font-mono); font-size: 13px; }
+.flow li { padding: 5px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+.flow li.arrow { background: none; border: 0; padding: 0; color: var(--muted); }
+
+/* projects */
+.group + .group { margin-top: 30px; }
+.group > h3 { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--signal); margin-bottom: 12px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 18px; min-width: 0; }
+.card h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.15; margin: 0 0 6px; }
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+/* certifications */
+.certs { display: grid; gap: 14px; }
+.cert { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 18px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 16px 18px; }
+.score { font-family: var(--font-display); font-weight: 700; font-size: 2.1rem; color: var(--signal); font-variant-numeric: tabular-nums; }
+.cert h3 { font-size: 1.25rem; margin-bottom: 2px; }
+.cert p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+.more { margin-top: 18px; color: var(--muted); font-size: 0.95rem; }
+.more b { color: var(--fg); font-weight: 600; }
+
+/* education */
+.edu { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.edu li { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; }
+.edu .yr { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.edu b { font-weight: 600; }
+.edu span.where { display: block; }
+
+/* contact */
+.contact p { max-width: 56ch; color: var(--muted); margin: 0 0 20px; }
+
+@media (max-width: 760px) {
+  section { grid-template-columns: minmax(0, 1fr); padding-block: 40px; gap: 6px; }
+  .skills { grid-template-columns: minmax(0, 1fr); }
+  .lab { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .edu li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .cert { grid-template-columns: 74px minmax(0, 1fr); }
+  .job { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <nav aria-label="Navigation principale">
+      <a href="#competences">compétences</a>
+      <a href="#experience">expérience</a>
+      <a href="#projets">projets</a>
+      <a href="#certifications">certifications</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème">thème clair / sombre</button>
+  </header>
+
+  <div class="hero">
+    <span class="status">Disponible pour un stage de fin d'études (PFE)</span>
+    <h1>Wissal Mokdad</h1>
+    <p class="role">Ingénieure cybersécurité, sécurité des infrastructures, SOC et sécurité applicative</p>
+    <p class="lead">Étudiante en 5<sup>e</sup> année du cycle ingénieur en cybersécurité et infrastructures réseaux à l'EMSI Marrakech. Je travaille sur la détection des menaces, la supervision, le durcissement de serveurs et l'analyse de la sécurité des applications web et mobiles.</p>
+    <div class="cta">
+      <a class="btn" href="https://www.linkedin.com/in/wissal-mokdad-ab3296428" target="_blank" rel="noopener">Profil LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/wissalmokdad222" target="_blank" rel="noopener">GitHub</a>
+      <button class="btn ghost" id="copy" type="button">Copier mon e-mail</button>
+      <span class="mail" id="mail">wisalmokdad@icloud.com</span>
+    </div>
+  </div>
+
+  <section id="competences">
+    <div class="label">Compétences</div>
+    <div class="content">
+      <h2>Ce que je sais faire</h2>
+      <div class="skills">
+        <div class="skill"><h3>Détection et SOC</h3>
+          <ul class="chips"><li>IDS/IPS</li><li>SIEM</li><li>Supervision</li><li>Gestion d'incidents</li><li>Analyse de logs</li><li>Détection d'anomalies (UEBA)</li><li>Analyse d'observables</li></ul></div>
+        <div class="skill"><h3>Sécurité des infrastructures</h3>
+          <ul class="chips"><li>Durcissement Linux</li><li>Sécurisation SSH</li><li>Pare-feu UFW</li><li>Blocage actif d'intrusions</li><li>Audit de configuration</li><li>Sécurité réseau</li></ul></div>
+        <div class="skill"><h3>Sécurité applicative et web</h3>
+          <ul class="chips"><li>OWASP Top 10</li><li>Tests d'intrusion web</li><li>Analyse de vulnérabilités</li><li class="tool">Burp Suite</li></ul></div>
+        <div class="skill"><h3>Sécurité mobile et reverse engineering</h3>
+          <ul class="chips"><li>Analyse statique et dynamique Android</li><li class="tool">Jadx</li><li class="tool">Ghidra</li><li class="tool">Frida</li></ul></div>
+        <div class="skill"><h3>Outils de sécurité</h3>
+          <ul class="chips"><li class="tool">Suricata</li><li class="tool">Wazuh</li><li class="tool">TheHive</li><li class="tool">Cortex</li><li class="tool">fail2ban</li><li class="tool">Lynis</li><li class="tool">Nmap</li><li class="tool">Hydra</li></ul></div>
+        <div class="skill"><h3>Développement, systèmes, IA</h3>
+          <ul class="chips"><li>Python</li><li>Java</li><li>C++</li><li>SQL</li><li>JavaScript</li><li>Linux (Ubuntu)</li><li>VMware</li><li>Deep Learning (YOLO, MobileNet)</li><li>Blockchain</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="label">Expérience</div>
+    <div class="content">
+      <h2>Un système IDS/IPS monté de zéro chez OCP</h2>
+      <article class="job">
+        <div class="job-head"><h3>Stagiaire en cybersécurité, OCP (Office Chérifien des Phosphates)</h3><span class="where">Safi</span></div>
+        <p class="sub">Conception et mise en œuvre d'un système IDS/IPS et durcissement d'un serveur Linux.</p>
+        <ul>
+          <li>Conception et déploiement d'un laboratoire VMware de cinq machines virtuelles.</li>
+          <li>Installation de Suricata et écriture de règles personnalisées pour détecter les scans Nmap et les attaques par force brute SSH.</li>
+          <li>Supervision avec un manager Wazuh pour centraliser les alertes de sécurité.</li>
+          <li>Audit de référence avec Lynis, durcissement SSH/UFW et blocage actif des adresses malveillantes avec fail2ban.</li>
+          <li>Rapport technique avec captures d'écran annotées.</li>
+        </ul>
+        <p class="lab-title">Les cinq machines du laboratoire</p>
+        <ol class="lab">
+          <li><b>Attaquant</b>Lance les scans et les attaques</li>
+          <li class="ids"><b>IDS/IPS</b>Suricata, règles personnalisées</li>
+          <li><b>Cible</b>Serveur Linux durci</li>
+          <li><b>Simulateur OT</b>Environnement industriel simulé</li>
+          <li><b>Manager Wazuh</b>Supervision et alertes</li>
+        </ol>
+        <ul class="flow" aria-label="Scénarios de détection">
+          <li>Scan Nmap</li><li class="arrow">+</li><li>Force brute SSH</li><li class="arrow">→</li><li>Détection Suricata</li><li class="arrow">→</li><li>Blocage fail2ban</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="label">Projets</div>
+    <div class="content">
+      <h2>Projets techniques et académiques</h2>
+      <p class="more" style="margin:-8px 0 26px">Le code de mes projets est sur <a href="https://github.com/wissalmokdad222" target="_blank" rel="noopener">github.com/wissalmokdad222</a>.</p>
+      <div class="group">
+        <h3>Détection, supervision et réponse aux incidents</h3>
+        <div class="cards">
+          <div class="card"><h4>UEBA</h4><p>Détection d'activités anormales par l'analyse du comportement des utilisateurs et des entités.</p></div>
+          <div class="card"><h4>TheHive et Cortex</h4><p>Gestion des incidents de sécurité et analyse automatisée des observables.</p></div>
+          <div class="card"><h4>Supervision réseau e-learning</h4><p>Mise en place de la supervision du réseau d'une plateforme e-learning.</p></div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Sécurité applicative et mobile</h3>
+        <div class="cards">
+          <div class="card"><h4>OWASP Juice Shop</h4><p>Identification de vulnérabilités sur une application web volontairement vulnérable, avec Burp Suite.</p></div>
+          <div class="card"><h4>Sécurité des applications Android</h4><p>Analyse d'applications avec Jadx, Ghidra et Frida.</p></div>
+          <div class="card"><h4>Application mobile pour caftans</h4><p>Application développée en Java avec Android Studio.</p></div>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Développement, IA et blockchain</h3>
+        <div class="cards">
+          <div class="card"><h4>Reconnaissance d'activités humaines</h4><p>Deep learning avec YOLO et MobileNet.</p></div>
+          <div class="card"><h4>MediChain</h4><p>Projet autour de la technologie blockchain.</p></div>
+          <div class="card"><h4>Gestion de localisation de voitures</h4><p>Application développée en C++.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="label">Certifications</div>
+    <div class="content">
+      <h2>Certifications et formations</h2>
+      <div class="certs">
+        <div class="cert"><div class="score">93 %</div><div><h3>Mobile Application Security</h3><p>Professional Certification, MLIAEdu. Tous les labs pratiques complétés.</p></div></div>
+        <div class="cert"><div class="score">86 %</div><div><h3>Android Development with Java</h3><p>Professional Certification, MLIAEdu. 100 % des labs complétés.</p></div></div>
+        <div class="cert"><div class="score">KASBAH</div><div><h3>Exercice de gestion de crise cyber</h3><p>EMSI et Cybersup, campus de Marrakech, 23 au 25 septembre 2026. Serious game en Cellule 2 (pôle Direction) : qualifier, décider et assumer sous pression.</p></div></div>
+      </div>
+      <p class="more"><b>Formations en ligne :</b> Agile Project Management (Google), Fundamentals of Blockchain Architecture (LearnQuest), Introduction to Machine Learning (Duke University), Introduction to Cloud Computing (IBM), Introduction to NoSQL Databases (IBM).</p>
+    </div>
+  </section>
+
+  <section id="formation">
+    <div class="label">Formation</div>
+    <div class="content">
+      <h2>Parcours</h2>
+      <ul class="edu">
+        <li><span class="yr">2025 à aujourd'hui</span><div><b>Cycle ingénieur, cybersécurité et infrastructures réseaux</b><span class="where">EMSI, Marrakech</span></div></li>
+        <li><span class="yr">2020 à 2025</span><div><b>Licence en sciences mathématiques et informatiques</b><span class="where">FPS Cadi Ayyad, Safi</span></div></li>
+        <li><span class="yr">2020 à 2023</span><div><b>DEUG en sciences mathématiques et informatiques</b><span class="where">FPS Cadi Ayyad, Safi</span></div></li>
+        <li><span class="yr">2019 à 2020</span><div><b>Baccalauréat Sciences Mathématiques, option A</b><span class="where">Lycée AlKhawarizmi, Safi</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="label">Contact</div>
+    <div class="content">
+      <h2>Je cherche un stage de fin d'études en cybersécurité</h2>
+      <p>SOC, sécurité des infrastructures ou sécurité applicative, dans toute ville. Langues : arabe, français et anglais (courant).</p>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/wissal-mokdad-ab3296428" target="_blank" rel="noopener">Me contacter sur LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/wissalmokdad222" target="_blank" rel="noopener">Voir mon GitHub</a>
+        <span class="mail">wisalmokdad@icloud.com</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('theme');
+  themeBtn.addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+  });
+  var copyBtn = document.getElementById('copy');
+  var mail = document.getElementById('mail');
+  copyBtn.addEventListener('click', function () {
+    var text = mail.textContent.trim();
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(mail);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Adresse sélectionnée';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { copyBtn.textContent = 'E-mail copié'; }, fallback);
+    } catch (e) { fallback(); }
+    setTimeout(function () { copyBtn.textContent = 'Copier mon e-mail'; }, 2200);
+  });
+})();
+</script>
+
+</html>
